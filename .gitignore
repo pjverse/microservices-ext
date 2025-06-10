@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # IntelliJ IDEA
 .idea/
+
+# Common IDE files
+.DS_Store
