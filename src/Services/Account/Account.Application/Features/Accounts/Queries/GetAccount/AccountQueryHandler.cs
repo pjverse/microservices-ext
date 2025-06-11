@@ -21,11 +21,11 @@ namespace Account.Application.Features.Accounts.Queries.GetAccount
 
         public async Task<GetAccountResponse> Handle(AccountQuery request, CancellationToken cancellationToken)
         {
-            var account = await _accountRepository.GetAsync(x => x.Id == request.AccountId && x.CustomerId == request.CustomerId);
+            var account = await _accountRepository.GetByIdAsync(request.AccountId);
+
             if (account is null)
                 throw new NotFoundException(nameof(Domain.Entities.Account), request.AccountId);
-            if (account.CustomerId != request.AccountId)
-                throw new UnauthorizedAccessException();
+
             return _mapper.Map<GetAccountResponse>(account)!;
         }
     }

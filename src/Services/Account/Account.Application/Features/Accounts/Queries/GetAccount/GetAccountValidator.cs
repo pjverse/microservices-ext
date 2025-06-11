@@ -7,8 +7,6 @@ namespace Account.Application.Features.Accounts.Queries.GetAccount
     {
         public GetAccountValidator()
         {
-            RuleFor(x => x.CustomerId)
-                .NotEqual(Guid.Empty).WithMessage(AccountMessages.CustomerRequired);
             RuleFor(x => x.AccountId)
                 .NotEqual(Guid.Empty).WithMessage(AccountMessages.AccountRequired);
         }
