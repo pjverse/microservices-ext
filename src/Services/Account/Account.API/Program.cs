@@ -55,14 +55,12 @@ app.MigrateDatabase<AccountContext>((context, services) =>
         .Wait();
 });
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
-{
     app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Account.API v1"));
-}
+
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Account.API v1"));
 
 //app.UseHttpsRedirection();
 app.UseRouting();
